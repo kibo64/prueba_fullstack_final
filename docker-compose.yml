@@ -1,0 +1,126 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+
+  ms-eureka:
+    image: ms-eureka:latest
+    container_name: ms-eureka
+    ports:
+      - "8761:8761"
+    depends_on:
+      - mysql
+
+  ms-auth:
+    image: ms-auth:latest
+    container_name: ms-auth
+    ports:
+      - "8092:8092"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-facultad:
+    image: ms-facultad:latest
+    container_name: ms-facultad
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-estudiantes:
+    image: ms-estudiantes:latest
+    container_name: ms-estudiantes
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-profesores:
+    image: ms-profesores:latest
+    container_name: ms-profesores
+    ports:
+      - "8084:8084"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-cursos:
+    image: ms-cursos:latest
+    container_name: ms-cursos
+    ports:
+      - "8085:8085"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-inscripciones:
+    image: ms-inscripciones:latest
+    container_name: ms-inscripciones
+    ports:
+      - "8086:8086"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-evaluaciones:
+    image: ms-evaluaciones:latest
+    container_name: ms-evaluaciones
+    ports:
+      - "8087:8087"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-notas:
+    image: ms-notas:latest
+    container_name: ms-notas
+    ports:
+      - "8088:8088"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-asistencias:
+    image: ms-asistencias:latest
+    container_name: ms-asistencias
+    ports:
+      - "8089:8089"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-horarios:
+    image: ms-horarios:latest
+    container_name: ms-horarios
+    ports:
+      - "8090:8090"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-historial-academico:
+    image: ms-historial-academico:latest
+    container_name: ms-historial-academico
+    ports:
+      - "8091:8091"
+    depends_on:
+      - mysql
+      - ms-eureka
+
+  ms-gateway:
+    image: ms-gateway:latest
+    container_name: ms-gateway
+    ports:
+      - "8093:8093"
+    depends_on:
+      - ms-eureka
