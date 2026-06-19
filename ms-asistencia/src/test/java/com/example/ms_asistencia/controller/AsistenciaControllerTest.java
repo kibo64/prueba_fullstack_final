@@ -37,10 +37,10 @@ class AsistenciaControllerTest {
     private final ObjectMapper objectMapper =
             new ObjectMapper().findAndRegisterModules();
 
-    @MockitoBean
+    @MockitoBean 
     private AsistenciaService service;
 
-    @MockitoBean
+    @MockitoBean 
     private JwtFilter jwtFilter;
 
     @MockitoBean
@@ -175,9 +175,9 @@ class AsistenciaControllerTest {
 
         when(service.porcentajeAsistencia(1L, 1L))
                 .thenReturn(85.0);
-
+ 
         mockMvc.perform(
-                        get("/api/v1/asistencias/porcentaje/estudiante/1/curso/1"))
-                .andExpect(status().isOk());
-    }
-}
+                        get("/api/v1/asistencias/porcentaje/estudiante/1/curso/1")) 
+                .andExpect(status().isOk()); 
+    } 
+} 

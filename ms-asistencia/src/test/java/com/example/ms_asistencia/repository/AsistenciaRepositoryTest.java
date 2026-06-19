@@ -62,13 +62,13 @@ class AsistenciaRepositoryTest {
                 1L,
                 1L
         );
-
+ 
         List<Asistencia> resultado = List.of(asistencia);
-
+ 
         assertFalse(resultado.isEmpty());
         assertEquals(
                 1L,
                 resultado.get(0).getIdCurso()
         );
-    }
-}
+    } 
+} 
