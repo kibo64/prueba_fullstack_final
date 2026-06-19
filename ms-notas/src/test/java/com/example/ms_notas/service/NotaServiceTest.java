@@ -379,9 +379,9 @@ class NotaServiceTest {
 
         List<NotaResponse> resultado =
                 service.listar(token);
-
+ 
         assertNotNull(resultado);
         assertEquals(1, resultado.size());
         assertEquals(1L, resultado.get(0).getId());
     }
-}
+}  

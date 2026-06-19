@@ -176,5 +176,5 @@ class NotaControllerTest {
         mockMvc.perform(
                         get("/api/v1/notas/Promedio/1"))
                 .andExpect(status().isOk());
-    }
-}
+    } 
+} 

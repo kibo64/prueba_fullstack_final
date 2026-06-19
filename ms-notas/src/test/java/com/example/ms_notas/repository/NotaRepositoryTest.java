@@ -66,5 +66,5 @@ class NotaRepositoryTest {
                 2L,
                 resultado.get(0).getIdEvaluacion()
         );
-    }
-}
+    } 
+} 
